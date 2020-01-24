@@ -8,6 +8,7 @@ const Dashboard = props => {
         <div className="homeButtons">
           <Button
             color="secondary"
+            size="lg"
             className="buttons_ball"
             onClick={() => props.setBalls(addBall(props.balls))}
           >
@@ -15,6 +16,7 @@ const Dashboard = props => {
           </Button>
           <Button
             color="secondary"
+            size="lg"
             className="buttons__strike"
             onClick={() => {
               let values = addStrike(props.strikes, props.outs);
@@ -40,6 +42,7 @@ const Dashboard = props => {
 
           <Button
             color="secondary"
+            size="lg"
             className="buttons__foul"
             onClick={() => props.setStrikes(addFoul(props.strikes))}
           >
@@ -47,6 +50,7 @@ const Dashboard = props => {
           </Button>
           <Button
             color="secondary"
+            size="lg"
             className="buttons__out"
             onClick={() => {
               let values = addStrike(3, props.outs); 
@@ -68,6 +72,7 @@ const Dashboard = props => {
           </Button>
           <Button
             color="secondary"
+            size="lg"
             className="buttons__hit"
             onClick={() => {
               if (props.whosUp === "Home") {
@@ -105,7 +110,7 @@ const addOut = prevOut => {
   
     return newOut;
   };
-  
+
 const addStrike = (prevStrike, prevOut) => {
   let newStrike = prevStrike + 1;
   let newOut = prevOut;
