@@ -8,14 +8,14 @@ const Dashboard = props => {
         <div className="homeButtons">
           <Button
             color="secondary"
-            className="homeButtons_ball"
+            className="buttons_ball"
             onClick={() => props.setBalls(addBall(props.balls))}
           >
             Ball
           </Button>
           <Button
             color="secondary"
-            className="homeButtons__strike"
+            className="buttons__strike"
             onClick={() => {
               let values = addStrike(props.strikes, props.outs);
               props.setStrikes(values[0]);
@@ -40,14 +40,14 @@ const Dashboard = props => {
 
           <Button
             color="secondary"
-            className="awayButtons__foul"
+            className="buttons__foul"
             onClick={() => props.setStrikes(addFoul(props.strikes))}
           >
             Foul
           </Button>
           <Button
             color="secondary"
-            className="awayButtons__out"
+            className="buttons__out"
             onClick={() => {
               let values = addStrike(3, props.outs); 
 
@@ -68,7 +68,7 @@ const Dashboard = props => {
           </Button>
           <Button
             color="secondary"
-            className="awayButtons__hit"
+            className="buttons__hit"
             onClick={() => {
               if (props.whosUp === "Home") {
                 props.setHomeHits(props.homeHits + 1);
@@ -96,6 +96,16 @@ const addBall = prevCount => {
   return newCount;
 };
 
+const addOut = prevOut => {
+    let newOut = prevOut + 1;
+  
+    if (newOut > 2) {
+      newOut = 0;
+    }
+  
+    return newOut;
+  };
+  
 const addStrike = (prevStrike, prevOut) => {
   let newStrike = prevStrike + 1;
   let newOut = prevOut;
@@ -117,15 +127,7 @@ const addFoul = prevStrike => {
   return newStrike;
 };
 
-const addOut = prevOut => {
-  let newOut = prevOut + 1;
 
-  if (newOut > 2) {
-    newOut = 0;
-  }
-
-  return newOut;
-};
 
 export default Dashboard;
 export { addBall, addStrike, addFoul, addOut };
